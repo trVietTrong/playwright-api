@@ -1,0 +1,15 @@
+services:
+  playwright-api:
+    image: mcr.microsoft.com/playwright/python:v1.48.0-jammy
+    container_name: playwright_api
+    working_dir: /app
+    volumes:
+      - .:/app
+    ports:
+      - "8888:8888"  # Map cổng API Flask ra ngoài
+    command: >
+      bash -c "
+        pip install --no-cache-dir flask python-dotenv requests playwright &&
+        playwright install --with-deps chromium &&
+        python webhook_server.py
+      "
