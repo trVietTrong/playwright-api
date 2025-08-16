@@ -29,3 +29,7 @@ Thumbs.db
 
 # Pytest cache
 .pytest_cache/
+
+# Playwright outputs
+playwright-report/
+test-results/
